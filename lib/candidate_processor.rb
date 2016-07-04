@@ -26,7 +26,12 @@ class CandidateProcessor
       end
     end
 
-    generate_csv(candidates)
+    if candidates.any?
+      generate_csv(candidates)
+      puts "Success! Check candidates-#{@meetup_name}.csv"
+    else
+      puts "Sorry, nobody was interested in Ruby on Rails at this meetup."
+    end
   end
 
   def generate_csv(candidates)
