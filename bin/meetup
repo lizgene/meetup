@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/candidate_processor"
+
+command = ARGV.shift
+
+case command
+when "process"
+  puts "processing meetup #{ARGV[0]}"
+  CandidateProcessor.new(ARGV[0]).process!
+else
+  STDOUT.puts <<-EOF
+Please provide command name
+
+Usage:
+  meetup process
+EOF
+end
